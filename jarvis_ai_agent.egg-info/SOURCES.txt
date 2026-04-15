@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+jarvis/__init__.py
+jarvis/main.py
+jarvis_ai_agent.egg-info/PKG-INFO
+jarvis_ai_agent.egg-info/SOURCES.txt
+jarvis_ai_agent.egg-info/dependency_links.txt
+jarvis_ai_agent.egg-info/requires.txt
+jarvis_ai_agent.egg-info/top_level.txt

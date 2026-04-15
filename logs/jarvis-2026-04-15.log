@@ -1,0 +1,3 @@
+INFO     | jarvis.core.logging:info:76 | JARVIS Engine initialized
+DEBUG    | jarvis.core.logging:debug:72 | Parsing command: build a Python REST API
+INFO     | jarvis.core.logging:log_decision:119 | [DECISION] Intent detection: coding | REASONING: Confidence: 0.8 | OPTIONS: [<IntentType.CODING: 'coding'>, <IntentType.RESEARCH: 'research'>, <IntentType.TASK: 'task'>]
