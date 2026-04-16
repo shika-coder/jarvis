@@ -17,6 +17,20 @@ from jarvis.self_improvement.code_analyzer import CodeAnalyzer
 from jarvis.self_improvement.performance_monitor import PerformanceMonitor, ExecutionProfile
 from jarvis.self_improvement.test_generator import TestGenerator, TestCase
 from jarvis.self_improvement.refactor_engine import RefactoringEngine, RefactoringStep
+from jarvis.self_improvement.workflow_builder import (
+    Workflow,
+    WorkflowBuilder,
+    WorkflowComposer,
+    WorkflowStep,
+    WorkflowStatus,
+    StepCondition,
+)
+from jarvis.self_improvement.deployment_planner import (
+    DeploymentPlan,
+    DeploymentStrategy,
+    DeploymentStatus,
+    DeploymentStep,
+)
 
 __all__ = [
     "SelfImprovementBase",
@@ -33,4 +47,14 @@ __all__ = [
     "TestCase",
     "RefactoringEngine",
     "RefactoringStep",
+    "Workflow",
+    "WorkflowBuilder",
+    "WorkflowComposer",
+    "WorkflowStep",
+    "WorkflowStatus",
+    "StepCondition",
+    "DeploymentPlan",
+    "DeploymentStrategy",
+    "DeploymentStatus",
+    "DeploymentStep",
 ]
