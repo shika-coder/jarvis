@@ -14,6 +14,7 @@ from jarvis.self_improvement.base import (
     ImprovementTracker,
 )
 from jarvis.self_improvement.code_analyzer import CodeAnalyzer
+from jarvis.self_improvement.performance_monitor import PerformanceMonitor, ExecutionProfile
 
 __all__ = [
     "SelfImprovementBase",
@@ -24,4 +25,6 @@ __all__ = [
     "ChangeValidator",
     "ImprovementTracker",
     "CodeAnalyzer",
+    "PerformanceMonitor",
+    "ExecutionProfile",
 ]
