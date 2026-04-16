@@ -44,7 +44,10 @@ dev = [
 voice = [
     "openai-whisper>=20231117",
     "elevenlabs>=0.2.0",
-    "pyaudio>=0.2.13",
+    "sounddevice>=0.4.6",
+    "soundfile>=0.12.1",
+    "numpy>=1.24.0",
+    "pvporcupine>=2.2.0",
 ]
 ml = [
     "faiss-cpu>=1.7.0",
