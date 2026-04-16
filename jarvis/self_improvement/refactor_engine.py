@@ -198,8 +198,8 @@ class RefactoringEngine:
             True if applied successfully
         """
         try:
-            # Validate the change
-            is_valid, issues = self.validator.validate_change(
+            # Validate the change - use sync wrapper
+            is_valid, issues = self._validate_change_sync(
                 step.file_path,
                 step.original_code,
                 step.refactored_code
@@ -327,3 +327,17 @@ class RefactoringEngine:
             'low_impact': low_impact,
             'reversible': sum(1 for s in self.refactoring_history if s.is_reversible)
         }
+
+    def _validate_change_sync(self, file_path: Path, original: str, refactored: str) -> tuple:
+        """Synchronous wrapper for validate_change."""
+        import asyncio
+        try:
+            result = asyncio.run(self.validator.validate_change(original, refactored))
+            return result.get('valid', False), result.get('warnings', [])
+        except RuntimeError:
+            # Already in async context, use basic validation
+            try:
+                ast.parse(refactored)
+                return True, []
+            except SyntaxError as e:
+                return False, [str(e)]

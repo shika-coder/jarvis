@@ -288,3 +288,58 @@ class CodeAnalyzer(SelfImprovementBase):
             "by_severity": by_severity,
             "by_type": by_type,
         }
+    
+    def analyze(self, code: str, file_path: str = "<input>") -> Dict[str, Any]:
+        """Synchronous wrapper for analyze_code."""
+        import asyncio
+        try:
+            result = asyncio.run(self.analyze_code(code, file_path))
+            return self.get_summary()
+        except RuntimeError:
+            # Already in async context, fall back to sync analysis
+            return self._analyze_sync(code)
+    
+    def _analyze_sync(self, code: str) -> Dict[str, Any]:
+        """Synchronous analysis without async."""
+        self.issues = []
+        try:
+            tree = ast.parse(code)
+        except SyntaxError:
+            return {"total_issues": 0, "by_severity": {}, "by_type": {}}
+        
+        self._check_security(tree, code, "<input>")
+        self._check_complexity(tree, "<input>")
+        self._check_performance(tree, code, "<input>")
+        self._check_style(tree, code, "<input>")
+        
+        return self.get_summary()
+    
+    def analyze_security(self, code: str) -> List[CodeIssue]:
+        """Synchronous wrapper for security analysis."""
+        self.issues = []
+        try:
+            tree = ast.parse(code)
+            self._check_security(tree, code, "<input>")
+        except SyntaxError:
+            pass
+        return self.issues
+    
+    def analyze_complexity(self, code: str) -> List[CodeIssue]:
+        """Synchronous wrapper for complexity analysis."""
+        self.issues = []
+        try:
+            tree = ast.parse(code)
+            self._check_complexity(tree, "<input>")
+        except SyntaxError:
+            pass
+        return self.issues
+    
+    def analyze_performance(self, code: str) -> List[CodeIssue]:
+        """Synchronous wrapper for performance analysis."""
+        self.issues = []
+        try:
+            tree = ast.parse(code)
+            self._check_performance(tree, code, "<input>")
+        except SyntaxError:
+            pass
+        return self.issues
