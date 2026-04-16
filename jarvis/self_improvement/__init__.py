@@ -15,6 +15,8 @@ from jarvis.self_improvement.base import (
 )
 from jarvis.self_improvement.code_analyzer import CodeAnalyzer
 from jarvis.self_improvement.performance_monitor import PerformanceMonitor, ExecutionProfile
+from jarvis.self_improvement.test_generator import TestGenerator, TestCase
+from jarvis.self_improvement.refactor_engine import RefactoringEngine, RefactoringStep
 
 __all__ = [
     "SelfImprovementBase",
@@ -27,4 +29,8 @@ __all__ = [
     "CodeAnalyzer",
     "PerformanceMonitor",
     "ExecutionProfile",
+    "TestGenerator",
+    "TestCase",
+    "RefactoringEngine",
+    "RefactoringStep",
 ]
