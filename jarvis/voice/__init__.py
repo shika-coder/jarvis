@@ -7,6 +7,7 @@ Speech-to-Text and Text-to-Speech integration with wake-word detection.
 from jarvis.voice.speech_to_text import SpeechToText, SpeechResult
 from jarvis.voice.text_to_speech import TextToSpeech, TTSResult
 from jarvis.voice.wake_word import WakeWordDetector, WakeWordResult
+from jarvis.voice.voice_engine import VoiceEngine, VoiceMode, VoiceCommand
 
 __all__ = [
     "SpeechToText",
@@ -15,4 +16,7 @@ __all__ = [
     "TTSResult",
     "WakeWordDetector",
     "WakeWordResult",
+    "VoiceEngine",
+    "VoiceMode",
+    "VoiceCommand",
 ]
