@@ -353,3 +353,71 @@ MIT
 ## Contact
 
 JARVIS AI Team
+
+---
+
+## 🚀 Phase 4: AI Learning & Autonomous Decisions
+
+JARVIS kann jetzt **autonom entscheiden** welche Code-Verbesserungen durchzuführen sind:
+
+```python
+from jarvis.learning.phase4_integration import Phase4System
+
+system = Phase4System()
+
+# Full autonomous workflow: analyze → predict → decide → execute → learn
+result = await system.analyze_and_improve(
+    file_path="mycode.py",
+    auto_execute=True,      # Auto-execute approved improvements
+    run_background=True     # Non-blocking background execution
+)
+
+# View decisions and reasoning
+for decision in result['decisions']:
+    print(f"✅ {decision['improvement']}: {decision['reasoning']}")
+
+# System learns from outcomes
+await system.record_outcome("add_type_hints", success=True)
+```
+
+### Key Phase 4 Features
+
+- **🧠 Machine Learning**: RandomForest models predict best improvements
+- **🎓 Knowledge Base**: Persistent pattern storage with confidence scores
+- **🤖 AI Decision Engine**: Autonomous decisions with risk assessment
+  - Confidence scoring (40% weight)
+  - Knowledge support (20% weight)
+  - Expected impact (30% weight)
+  - Safety/risk mitigation (10% weight)
+- **⚡ Background Optimizer**: Non-blocking, prioritized task execution
+  - Task prioritization (CRITICAL → LOW)
+  - Concurrent processing
+  - Pause/resume control
+- **👥 Multi-Agent Coordination**: Task delegation to specialized agents
+- **📊 Complete Audit Trail**: Every decision logged with reasoning
+
+### Example: Full System Status
+
+```python
+status = system.get_system_status()
+
+print(f"Learning Outcomes Recorded: {status['learning_system']['outcomes_recorded']}")
+print(f"Knowledge Entries: {status['knowledge_base']['entries']}")
+print(f"Success Rate: {status['background_optimizer']['stats']['success_rate']:.1%}")
+print(f"Pending Tasks: {status['background_optimizer']['pending_tasks']}")
+```
+
+### Phase 4 Components
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| Learning System | `jarvis/learning/learning_system.py` | ML-based prediction |
+| Knowledge Base | `jarvis/learning/knowledge_base.py` | Pattern storage |
+| Predictive Analyzer | `jarvis/learning/predictive_analyzer.py` | Ranked recommendations |
+| AI Decision Engine | `jarvis/learning/ai_decision_engine.py` | Autonomous decisions |
+| Background Optimizer | `jarvis/learning/background_optimizer.py` | Non-blocking execution |
+| Multi-Agent Coordinator | `jarvis/agents/multi_agent_coordinator.py` | Task delegation |
+| Phase 4 Integration | `jarvis/learning/phase4_integration.py` | Unified facade |
+
+---
+
